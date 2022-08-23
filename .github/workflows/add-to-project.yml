@@ -2,8 +2,9 @@ name: Add To GitHub projects
 
 on:
   workflow_call:
-   secrets:
+   inputs:
       github-token:
+        type: string
         required: true
 
 jobs:
@@ -14,6 +15,6 @@ jobs:
       - uses: actions/add-to-project@v0.3.0
         with:
           project-url: https://github.com/orgs/TestCarina/projects/1
-          github-token: ${{ secrets.github-token }}
+          github-token: ${{ inputs.github-token }}
 #           labeled: bug
 #           label-operator: OR
